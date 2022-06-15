@@ -54,6 +54,7 @@ span {
 }
 
 .phase {
+  cursor: pointer;
   margin: auto;
   font-family: var(--font);
   font-weight: 700;

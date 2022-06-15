@@ -51,6 +51,7 @@ export default function Home() {
   }, [seconds]);
 
   useEffect(() => {
+    setSeconds(0)
     if(currentPhase === 1) {
       setInitialMinutes(pomodoro)
       setMinutes(pomodoro)
@@ -92,13 +93,13 @@ export default function Home() {
       <span className="title">pomodoro</span>
 
       <div className='phase_wrapper'>
-        <div className={currentPhase === 1 ? 'phase active' : 'phase'}>
+        <div onClick={() => {setCurrentPhase(1)}} className={currentPhase === 1 ? 'phase active' : 'phase'}>
           <span>pomodoro</span>
         </div>
-        <div className={currentPhase === 2 ? 'phase active' : 'phase'}>
+        <div onClick={() => {setCurrentPhase(2)}} className={currentPhase === 2 ? 'phase active' : 'phase'}>
           <span>short break</span>
         </div>
-        <div className={currentPhase === 3 ? 'phase active' : 'phase'}>
+        <div onClick={() => {setCurrentPhase(3)}} className={currentPhase === 3 ? 'phase active' : 'phase'}>
           <span>long break</span>
         </div>
       </div>
