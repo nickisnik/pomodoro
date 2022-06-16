@@ -129,7 +129,7 @@ export default function Home() {
         <div className={currentCycle >= 3 ? 'cycle-indicator active-cycle' : 'cycle-indicator'} />
         <div className={currentCycle === 4 ? 'cycle-indicator active-cycle' : 'cycle-indicator'} />
       </div>
-      <button className='skip' onClick={() => {setSeconds(1)}}>Skip</button>
+      {/* <button className='skip' onClick={() => {setSeconds(1)}}>Skip</button> */}
       <div className='timer_wrapper'>
           
           <svg className="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
