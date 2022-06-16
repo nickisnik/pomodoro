@@ -27,7 +27,6 @@ export default function Home() {
 
   const [currentCycle, setCurrentCycle] = useState(1);
   // const [isInTransition, setIsInTransition] = useState(false)
-
   // Refresh timer when settings are changed 
   useEffect(() => {
     setMinutes(0)
@@ -39,9 +38,9 @@ export default function Home() {
 
 
 
-  useEffect(() => {
+  /* useEffect(() => {
     console.log(initialMinutes, minutes)
-  }, [initialMinutes, minutes])
+  }, [initialMinutes, minutes]) */
 
   // Proceed to next phase on time end
   useEffect(() => {
