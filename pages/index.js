@@ -24,6 +24,9 @@ export default function Home() {
   const [selectedColour, setSelectedColour] = useState('#ff6f68');
   const [font, setFont] = useState('Nunito');
 
+  const [currentCycle, setCurrentCycle] = useState(1);
+  // const [isInTransition, setIsInTransition] = useState(false)
+
   // Refresh timer when settings are changed 
   useEffect(() => {
     setMinutes(0)
@@ -36,19 +39,35 @@ export default function Home() {
 
 
   useEffect(() => {
-    // For testing
-  }, [initialMinutes])
+    console.log(initialMinutes, minutes)
+  }, [initialMinutes, minutes])
 
   // Proceed to next phase on time end
   useEffect(() => {
     if(seconds === 0 && minutes === 0) {
-      if (currentPhase === 3) {
-        setCurrentPhase(1);
-      } else {
-        setCurrentPhase((prev) => prev + 1)
+      if(currentCycle < 4) {
+        if(currentPhase === 1) {
+          setCurrentPhase(2)
+        } else if (currentPhase === 2) {
+          // Next cycle after break
+          setCurrentPhase(1)
+          setCurrentCycle((prev) => prev + 1)
+        }
+      }
+      if(currentCycle === 4) {
+        if(currentPhase === 1) {
+          setCurrentPhase(2)
+        } else if (currentPhase === 2) {
+          setCurrentPhase(3) // Long break
+        } else if (currentPhase === 3) {
+          setCurrentPhase(1)
+          setCurrentCycle(1)
+        }
+
       }
     }
   }, [seconds]);
+
 
   useEffect(() => {
     setSeconds(0)
@@ -56,6 +75,7 @@ export default function Home() {
       setInitialMinutes(pomodoro)
       setMinutes(pomodoro)
     } else if (currentPhase === 2) {
+      
       setInitialMinutes(shortTime)
       setMinutes(shortTime)
     } else if (currentPhase === 3) {
@@ -94,16 +114,22 @@ export default function Home() {
 
       <div className='phase_wrapper'>
         <div onClick={() => {setCurrentPhase(1)}} className={currentPhase === 1 ? 'phase active' : 'phase'}>
-          <span>pomodoro</span>
+          <span>pomodoro</span> 
         </div>
         <div onClick={() => {setCurrentPhase(2)}} className={currentPhase === 2 ? 'phase active' : 'phase'}>
           <span>short break</span>
         </div>
-        <div onClick={() => {setCurrentPhase(3)}} className={currentPhase === 3 ? 'phase active' : 'phase'}>
+        <div onClick={() => {setCurrentCycle(4); setCurrentPhase(3)}} className={currentPhase === 3 ? 'phase active' : 'phase'}>
           <span>long break</span>
         </div>
       </div>
-
+      <div className='cycle-indicator_wrapper'>
+        <div className={currentCycle >= 1 ? 'cycle-indicator active-cycle' : 'cycle-indicator'} />
+        <div className={currentCycle >= 2 ? 'cycle-indicator active-cycle' : 'cycle-indicator'} />
+        <div className={currentCycle >= 3 ? 'cycle-indicator active-cycle' : 'cycle-indicator'} />
+        <div className={currentCycle === 4 ? 'cycle-indicator active-cycle' : 'cycle-indicator'} />
+      </div>
+      <button className='skip' onClick={() => {setMinutes(0); setSeconds(0)}}>Skip</button>
       <div className='timer_wrapper'>
           
           <svg className="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
