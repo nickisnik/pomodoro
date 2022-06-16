@@ -88,7 +88,7 @@ export default function Home() {
 
 
   function togglePause() {
-    //new Audio(audio).play()
+    new Audio(audio).play()
     setIsPaused((prev) => !prev)
   }
 
@@ -114,7 +114,6 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <span className="title">pomodoro</span>
-      <audio src="alarm.mp3" autoPlay loop controls>Hey</audio>
       <div className='phase_wrapper'>
         <div onClick={() => {setCurrentPhase(1)}} className={currentPhase === 1 ? 'phase active' : 'phase'}>
           <span>pomodoro</span> 
