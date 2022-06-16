@@ -1,6 +1,7 @@
 
 import styles from '../styles/Home.module.css'
 import Timer from '../components/Timer';
+import audio from '../public/alarm.wav';
 
 import {useState, useEffect} from 'react';
 
@@ -45,6 +46,7 @@ export default function Home() {
   // Proceed to next phase on time end
   useEffect(() => {
     if(seconds === 0 && minutes === 0) {
+
       if(currentCycle < 4) {
         if(currentPhase === 1) {
           setCurrentPhase(2)
@@ -86,6 +88,7 @@ export default function Home() {
 
 
   function togglePause() {
+    //new Audio(audio).play()
     setIsPaused((prev) => !prev)
   }
 
@@ -111,7 +114,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <span className="title">pomodoro</span>
-
+      <audio src="alarm.mp3" autoPlay loop controls>Hey</audio>
       <div className='phase_wrapper'>
         <div onClick={() => {setCurrentPhase(1)}} className={currentPhase === 1 ? 'phase active' : 'phase'}>
           <span>pomodoro</span> 
