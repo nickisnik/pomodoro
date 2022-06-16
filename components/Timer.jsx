@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
+import * as workerTimers from 'worker-timers';
 
 const Timer = ({minutes, setMinutes, seconds, setSeconds, setStrokeOffset, isPaused}) => {
 
     useEffect(()=>{
-    let myInterval = setInterval(() => {
+    let myInterval = workerTimers.setInterval(() => {
             if(!isPaused) {
                 
                 if (seconds > 0) {
@@ -13,7 +14,7 @@ const Timer = ({minutes, setMinutes, seconds, setSeconds, setStrokeOffset, isPau
                     if (minutes === 0) {
                         //clearInterval(myInterval)
                         setStrokeOffset(0)
-                        
+
                     } else {
                         setMinutes(minutes - 1);
                         setSeconds(59);
@@ -24,7 +25,7 @@ const Timer = ({minutes, setMinutes, seconds, setSeconds, setStrokeOffset, isPau
         }
         }, 1000)
         return ()=> {
-            clearInterval(myInterval);
+            workerTimers.clearInterval(myInterval);
           };
     });
 
