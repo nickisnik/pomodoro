@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a Next.JS Pomodoro timer app. It uses Web Worker to run setInterval every second to update the timer itself and ring the alarm when the time runs out (at the end of each phase). The circle is animated using a dynamic stroke-dashoffset CSS property, which is updated in sync with the timer.  
 
 ## Getting Started
 
