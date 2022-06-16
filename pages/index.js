@@ -1,7 +1,7 @@
 
 import styles from '../styles/Home.module.css'
 import Timer from '../components/Timer';
-//import audio from '../public/alarm.mp3';
+import audio from '../public/alarm.mp3';
 
 import {useState, useEffect} from 'react';
 
@@ -140,7 +140,7 @@ export default function Home() {
           </svg>
             <div className="timer_text_wrapper">
               {/* <span className='timer'>{formatTimeLeft(timeLeft)}</span> */}
-              <Timer /* audio={audio} */ isPaused={isPaused} minutes={minutes} setMinutes={setMinutes} seconds={seconds} setSeconds={setSeconds} setStrokeOffset={setStrokeOffset}/>
+              <Timer audio={audio} isPaused={isPaused} minutes={minutes} setMinutes={setMinutes} seconds={seconds} setSeconds={setSeconds} setStrokeOffset={setStrokeOffset}/>
               <button className='toggle' onClick={togglePause}>{isPaused ? `RESUME` : `PAUSE`}</button>
             </div>
          
