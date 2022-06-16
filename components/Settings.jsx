@@ -67,7 +67,7 @@ const Settings = ({font, setFont, pomodoro, shortTime, longTime, selectedColour,
                 </section>
                 
             </main>
-            <a className='github-link' href='https://github.com/nickisnik' target="_blank">made by nick</a>
+            <a className='github-link' href='https://github.com/nickisnik' rel="noreferrer" target="_blank">made by nick</a>
             <button value="submit" type='submit' form="time_form" className="apply-btn">Apply</button>
         </div>
     </div>
