@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import * as workerTimers from 'worker-timers';
 
-const Timer = ({minutes, setMinutes, seconds, setSeconds, setStrokeOffset, isPaused}) => {
+const Timer = ({audio, minutes, setMinutes, seconds, setSeconds, setStrokeOffset, isPaused}) => {
 
     useEffect(()=>{
     let myInterval = workerTimers.setInterval(() => {
@@ -12,6 +12,7 @@ const Timer = ({minutes, setMinutes, seconds, setSeconds, setStrokeOffset, isPau
                 }
                 if (seconds === 0) {
                     if (minutes === 0) {
+                        new Audio(audio).play()
                         //clearInterval(myInterval)
                         setStrokeOffset(0)
 

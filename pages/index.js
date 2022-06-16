@@ -45,7 +45,7 @@ export default function Home() {
   // Proceed to next phase on time end
   useEffect(() => {
     if(seconds === 0 && minutes === 0) {
-      new Audio(audio).play()
+      //new Audio(audio).play()
       if(currentCycle < 4) {
         if(currentPhase === 1) {
           setCurrentPhase(2)
@@ -140,7 +140,7 @@ export default function Home() {
           </svg>
             <div className="timer_text_wrapper">
               {/* <span className='timer'>{formatTimeLeft(timeLeft)}</span> */}
-              <Timer isPaused={isPaused} minutes={minutes} setMinutes={setMinutes} seconds={seconds} setSeconds={setSeconds} setStrokeOffset={setStrokeOffset}/>
+              <Timer audio={audio} isPaused={isPaused} minutes={minutes} setMinutes={setMinutes} seconds={seconds} setSeconds={setSeconds} setStrokeOffset={setStrokeOffset}/>
               <button className='toggle' onClick={togglePause}>{isPaused ? `RESUME` : `PAUSE`}</button>
             </div>
          
