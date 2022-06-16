@@ -237,8 +237,8 @@ span {
   margin: 0 1rem;
   /* height: 65vh; */
   background-color: white;
-  border-radius: 30px;
   font-family: var(--font);
+  border-radius: 30px;
   animation: settingsAppear 150ms linear;
 }
 
