@@ -13,6 +13,7 @@ const Timer = ({audio, minutes, setMinutes, seconds, setSeconds, setStrokeOffset
                 if (seconds === 0) {
                     if (minutes === 0) {
                         new Audio(audio).play()
+                        console.log('play sound')
                         //clearInterval(myInterval)
                         setStrokeOffset(0)
 
