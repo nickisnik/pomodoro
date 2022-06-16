@@ -46,7 +46,7 @@ export default function Home() {
   // Proceed to next phase on time end
   useEffect(() => {
     if(seconds === 0 && minutes === 0) {
-
+      new Audio(audio).play()
       if(currentCycle < 4) {
         if(currentPhase === 1) {
           setCurrentPhase(2)
@@ -88,7 +88,6 @@ export default function Home() {
 
 
   function togglePause() {
-    new Audio(audio).play()
     setIsPaused((prev) => !prev)
   }
 
@@ -114,7 +113,6 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <span className="title">pomodoro</span>
-      <audio src={audio} controls></audio>
       <div className='phase_wrapper'>
         <div onClick={() => {setCurrentPhase(1)}} className={currentPhase === 1 ? 'phase active' : 'phase'}>
           <span>pomodoro</span> 
