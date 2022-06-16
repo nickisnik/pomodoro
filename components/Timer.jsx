@@ -4,18 +4,12 @@ import * as workerTimers from 'worker-timers';
 const Timer = ({audio, minutes, setMinutes, seconds, setSeconds, setStrokeOffset, isPaused}) => {
 
     const [ringBell, setRingBell] = useState(false);
-
-    useEffect(() => {
-        if(ringBell === true) {
-            new Audio(audio).play()
-            console.log('play sound')
-            setRingBell(false)
-        }
-    }, [ringBell])
     useEffect(()=>{
     let myInterval = workerTimers.setInterval(() => {
             if(!isPaused) {
-                
+                if(seconds < 2 && minutes === 0) {
+                    new Audio(audio).play()
+                }
                 if (seconds > 0) {
                     setSeconds(seconds - 1);
                 }
@@ -31,6 +25,7 @@ const Timer = ({audio, minutes, setMinutes, seconds, setSeconds, setStrokeOffset
                         setSeconds(59);
                     }
                 } 
+                
                 
                 setStrokeOffset((minutes*60 + seconds - 1))
         }

@@ -1,7 +1,7 @@
 
 import styles from '../styles/Home.module.css'
 import Timer from '../components/Timer';
-import audio from '../public/alarm.mp3';
+//import audio from '../public/alarm.mp3';
 
 import {useState, useEffect} from 'react';
 
@@ -129,7 +129,7 @@ export default function Home() {
         <div className={currentCycle >= 3 ? 'cycle-indicator active-cycle' : 'cycle-indicator'} />
         <div className={currentCycle === 4 ? 'cycle-indicator active-cycle' : 'cycle-indicator'} />
       </div>
-      <button className='skip' onClick={() => {setMinutes(0); setSeconds(0)}}>Skip</button>
+      <button className='skip' onClick={() => {setSeconds(1)}}>Skip</button>
       <div className='timer_wrapper'>
           
           <svg className="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -140,7 +140,7 @@ export default function Home() {
           </svg>
             <div className="timer_text_wrapper">
               {/* <span className='timer'>{formatTimeLeft(timeLeft)}</span> */}
-              <Timer audio={audio} isPaused={isPaused} minutes={minutes} setMinutes={setMinutes} seconds={seconds} setSeconds={setSeconds} setStrokeOffset={setStrokeOffset}/>
+              <Timer /* audio={audio} */ isPaused={isPaused} minutes={minutes} setMinutes={setMinutes} seconds={seconds} setSeconds={setSeconds} setStrokeOffset={setStrokeOffset}/>
               <button className='toggle' onClick={togglePause}>{isPaused ? `RESUME` : `PAUSE`}</button>
             </div>
          

@@ -439,7 +439,6 @@ span {
 .skip {
   width: max-content;
   margin: 0 auto;
-  display: none;
 }
 
 .cycle-indicator_wrapper {
