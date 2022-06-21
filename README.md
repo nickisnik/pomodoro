@@ -1,4 +1,5 @@
 This is a Next.JS Pomodoro timer app. It uses Web Worker to run setInterval every second to update the timer itself and ring the alarm when the time runs out (at the end of each phase). The circle is animated using a dynamic stroke-dashoffset CSS property, which is updated in sync with the timer.  
+The design inspiration was take from [Front End Mentor](https://www.frontendmentor.io/challenges/pomodoro-app-KBFnycJ6G), however I did not pay for any of the resources and simply tried to recreate the thumbnail look.
 
 ## Getting Started
 
